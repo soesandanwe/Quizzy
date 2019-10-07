@@ -35,5 +35,29 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\UserBLL.cs" />
+    <Compile Include="DAL\Connection.cs" />
+    <Compile Include="DAL\UserDAL.cs" />
+    <Compile Include="Quizzy.cs" />
+    <Compile Include="UI\LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
