@@ -24,14 +24,46 @@ namespace Quizzy.DAL
             {
                 SqlDataReader rd = cmd.ExecuteReader();
                 dtUser.Load(rd);
+                
                 return dtUser;
             }
             catch
             {
                 throw;
             }
+            finally
+            {
+                conn.con.Close();
+            }
             
             
+        }
+        public DataTable LogIn(String userName,String password)
+        {
+            Connection conn = new Connection();
+            if (ConnectionState.Closed == conn.con.State)
+            {
+                conn.con.Open();
+            }
+
+            SqlCommand cmd = new SqlCommand("Select * From [User] Where UserName=@userName AND Password=@password", conn.con);
+            try
+            {
+                cmd.Parameters.AddWithValue("userName", userName);
+                cmd.Parameters.AddWithValue("password", password);
+                SqlDataReader rd = cmd.ExecuteReader();
+                dtUser.Load(rd);
+
+                return dtUser;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                conn.con.Close();
+            }
         }
     }
 }

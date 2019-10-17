@@ -17,10 +17,25 @@ namespace Quizzy.UI
             InitializeComponent();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            txtUserName.Text = "";
+            txtPassword.Text = "";
+        }
+
+        private void BtnLogIn_Click(object sender, EventArgs e)
         {
             UserBLL userBLL = new UserBLL();
-            dataGridView1.DataSource = userBLL.getUser();
+            if(userBLL.LogIn(txtUserName.Text, txtPassword.Text).Rows.Count>0)
+            {
+                this.Hide();
+                MainForm mainForm = new MainForm();
+                mainForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Cancel");
+            }
         }
     }
 }

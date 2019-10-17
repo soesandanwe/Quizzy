@@ -22,5 +22,19 @@ namespace Quizzy.BLL
                 throw;
             }
         }
+
+        public DataTable LogIn(String userName,String password)
+        {
+            try
+            {
+                UserDAL userDAL = new UserDAL();
+                return userDAL.LogIn(userName,password);
+            }
+            catch
+            {
+
+                throw;
+            }
+        }
     }
 }
