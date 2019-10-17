@@ -25,8 +25,25 @@ namespace Quizzy.UI
 
         private void BtnLogIn_Click(object sender, EventArgs e)
         {
+            checkValidUser();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char) Keys.Enter)
+            {
+                checkValidUser();
+            }
+        }
+        private void checkValidUser()
+        {
             UserBLL userBLL = new UserBLL();
-            if(userBLL.LogIn(txtUserName.Text, txtPassword.Text).Rows.Count>0)
+            if (userBLL.LogIn(txtUserName.Text, txtPassword.Text).Rows.Count > 0)
             {
                 this.Hide();
                 MainForm mainForm = new MainForm();
@@ -34,7 +51,18 @@ namespace Quizzy.UI
             }
             else
             {
-                MessageBox.Show("Cancel");
+                if(txtUserName.Text=="")
+                {
+                    MessageBox.Show("Please fill the UserName.");
+                }
+                else if(txtPassword.Text=="")
+                {
+                    MessageBox.Show("Please fill the Password.");
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Username and Password.");
+                }
             }
         }
     }

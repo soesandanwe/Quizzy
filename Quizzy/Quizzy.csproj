@@ -39,6 +39,11 @@
     <Compile Include="BLL\UserBLL.cs" />
     <Compile Include="DAL\Connection.cs" />
     <Compile Include="DAL\UserDAL.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Quizzy.cs" />
     <Compile Include="UI\LogIn.cs">
       <SubType>Form</SubType>
@@ -58,6 +63,12 @@
     <Compile Include="UI\ManageQuizzes.Designer.cs">
       <DependentUpon>ManageQuizzes.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ManageUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ManageUser.Designer.cs">
+      <DependentUpon>ManageUser.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -67,6 +78,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>

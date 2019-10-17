@@ -17,15 +17,63 @@ namespace Quizzy.UI
             InitializeComponent();
         }
 
-        private void btnManageQuestions_Click(object sender, EventArgs e)
+
+        private void lblExit_Click(object sender, EventArgs e)
         {
-            ManageQuizzes manageQuizzes = new ManageQuizzes();
-            manageQuizzes.Show();
+           
         }
 
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void btnManageQuizzes_Click(object sender, EventArgs e)
+        {
+            checkOpenForm();
+
+            ManageQuizzes manageQuizzes = new ManageQuizzes();
+            manageQuizzes.TopLevel = false;
+            manageQuizzes.AutoScroll = true;
+            this.panel3.Controls.Add(manageQuizzes);
+            manageQuizzes.Show();
+
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LogIn logIn = new LogIn();
+            logIn.Show();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                frm.WindowState = FormWindowState.Minimized;
+            }
+            
+        }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            checkOpenForm();
+
+            ManageUser manageUser = new ManageUser();
+            manageUser.TopLevel = false;
+            manageUser.AutoScroll = true;
+            this.panel3.Controls.Add(manageUser);
+            manageUser.Show();
+        }
+
+        private void checkOpenForm()
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm != this)
+                    frm.Hide();
+            }
         }
     }
 }

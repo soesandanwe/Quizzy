@@ -40,28 +40,32 @@
             // lblQuestion
             // 
             this.lblQuestion.AutoSize = true;
-            this.lblQuestion.Location = new System.Drawing.Point(13, 13);
+            this.lblQuestion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblQuestion.Location = new System.Drawing.Point(0, 0);
             this.lblQuestion.Name = "lblQuestion";
-            this.lblQuestion.Size = new System.Drawing.Size(121, 13);
+            this.lblQuestion.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.lblQuestion.Size = new System.Drawing.Size(131, 23);
             this.lblQuestion.TabIndex = 0;
             this.lblQuestion.Text = "Type your question here";
             // 
             // txtQuestion
             // 
-            this.txtQuestion.Location = new System.Drawing.Point(12, 41);
+            this.txtQuestion.Location = new System.Drawing.Point(12, 33);
             this.txtQuestion.Multiline = true;
             this.txtQuestion.Name = "txtQuestion";
+            this.txtQuestion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtQuestion.Size = new System.Drawing.Size(530, 86);
             this.txtQuestion.TabIndex = 1;
             // 
             // btnAddAnswer
             // 
-            this.btnAddAnswer.Location = new System.Drawing.Point(12, 133);
+            this.btnAddAnswer.BackColor = System.Drawing.SystemColors.Info;
+            this.btnAddAnswer.Location = new System.Drawing.Point(12, 125);
             this.btnAddAnswer.Name = "btnAddAnswer";
-            this.btnAddAnswer.Size = new System.Drawing.Size(75, 23);
+            this.btnAddAnswer.Size = new System.Drawing.Size(108, 31);
             this.btnAddAnswer.TabIndex = 4;
             this.btnAddAnswer.Text = "Add Answer";
-            this.btnAddAnswer.UseVisualStyleBackColor = true;
+            this.btnAddAnswer.UseVisualStyleBackColor = false;
             this.btnAddAnswer.Click += new System.EventHandler(this.btnAddAnswer_Click);
             // 
             // dgvAnswerList
@@ -94,6 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(554, 497);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -101,9 +106,10 @@
             this.Controls.Add(this.btnAddAnswer);
             this.Controls.Add(this.txtQuestion);
             this.Controls.Add(this.lblQuestion);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ManageQuizzes";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ManageQuizzes";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnswerList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
