@@ -1,0 +1,51 @@
+USE [personalityquiz]
+GO
+
+/****** Object:  Table [dbo].[QuizType]    Script Date: 2019-10-21 5:21:36 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[QuizType](
+	[QuizTypeID] [int] IDENTITY(1,1) NOT NULL,
+	[QuizType] [nvarchar](max) NULL,
+ CONSTRAINT [PK_QuizType] PRIMARY KEY CLUSTERED 
+(
+	[QuizTypeID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[User](
+	[UserID] [bigint] IDENTITY(1,1) NOT NULL,
+	[UserName] [nvarchar](50) NULL,
+	[Password] [nvarchar](50) NULL,
+	[FullName] [nvarchar](50) NULL,
+	[Age] [int] NULL,
+	[UserRoleID] [int] NULL,
+ CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
+(
+	[UserID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[User]  WITH CHECK ADD  CONSTRAINT [FK_User_UserRole] FOREIGN KEY([UserRoleID])
+REFERENCES [dbo].[UserRole] ([UserRoleID])
+GO
+
+ALTER TABLE [dbo].[User] CHECK CONSTRAINT [FK_User_UserRole]
+GO
+
+CREATE TABLE [dbo].[UserRole](
+	[UserRoleID] [int] IDENTITY(1,1) NOT NULL,
+	[RoleName] [nvarchar](50) NULL,
+ CONSTRAINT [PK_UserRole] PRIMARY KEY CLUSTERED 
+(
+	[UserRoleID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
